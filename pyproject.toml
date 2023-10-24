@@ -1,0 +1,16 @@
+[project]
+name = "da-bot"
+version = "0.1.0"
+description = "Da bot. Made with discord.py"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT License"}
+authors = [{name = "Mohamed Shadhaan", email = "shadhanm@gmail.com"}]
+dependencies = [
+	"aiohttp==3.9.0b0",
+	"discord.py",
+	"python-dotenv",
+]
+
+[project.optional-dependencies]
+dev = ["black"]
