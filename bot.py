@@ -12,6 +12,7 @@ GUILD_ID = discord.Object(id=835682783338561549)
 
 intents = discord.Intents.default()
 intents.message_content = True
+intents.members = True
 
 bot = commands.Bot(intents=intents, command_prefix=".")
 
@@ -19,6 +20,11 @@ bot = commands.Bot(intents=intents, command_prefix=".")
 @bot.event
 async def on_ready() -> None:
     print(f"Logged in as {bot.user}")
+
+
+@bot.event
+async def on_member_join(member: discord.Member) -> None:
+    await member.send(f"Welcome nigga {member.mention}")
 
 
 @bot.command()
@@ -30,11 +36,6 @@ async def sync(ctx: commands.Context[commands.Bot]) -> None:
 @bot.tree.command(name="blud", description="What is blud waffling about?")
 async def blud(interaction: discord.Interaction, member: discord.Member) -> None:
     await interaction.response.send_message(f"Blud {member.mention}")
-
-
-class Bruh:
-    def __init__(self):
-        return
 
 
 bot.run(TOKEN)
